@@ -5,8 +5,6 @@ export interface User {
   phone: string;
   address: string;
   role: 'citizen' | 'admin';
-  profileVisits: number;
-  lastVisited?: Date;
 }
 
 export interface Complaint {

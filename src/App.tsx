@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
 import { FileText, Users, BarChart3, Settings, Plus, Search, Filter, Bell, User } from 'lucide-react';
-import { UserProfile } from './components/UserProfile';
 import './index.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('profile');
-
-  // Mock user data
-  const currentUser = {
-    id: 'user-123',
-    name: 'Rajesh Kumar',
-    email: 'rajesh.kumar@email.com',
-    phone: '+91 98765 43210',
-    address: '123 MG Road, Bangalore, Karnataka 560001',
-    role: 'citizen' as const
-  };
+  const [activeTab, setActiveTab] = useState('complaints');
 
   const mockComplaints = [
     {
@@ -75,21 +64,12 @@ function App() {
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-lg">
         <div className="p-6 border-b">
-          <h1 className="text-xl font-bold text-gray-800">Civic Portal</h1>
-          <p className="text-sm text-gray-600">Citizen Services</p>
+          <h1 className="text-xl font-bold text-gray-800">NagarConnect</h1>
+          <p className="text-sm text-gray-600">Municipal Services</p>
         </div>
         
         <div className="p-4">
           <nav className="space-y-2">
-            <button
-              onClick={() => setActiveTab('profile')}
-              className={`w-full flex items-center px-4 py-2 text-left rounded-lg transition-colors ${
-                activeTab === 'profile' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <User className="w-5 h-5 mr-3" />
-              Profile
-            </button>
             <button
               onClick={() => setActiveTab('complaints')}
               className={`w-full flex items-center px-4 py-2 text-left rounded-lg transition-colors ${
@@ -163,16 +143,6 @@ function App() {
 
         {/* Main Content Area */}
         <main className="flex-1 p-8">
-          {activeTab === 'profile' && (
-            <div>
-              <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">My Profile</h1>
-                <p className="text-gray-600">Manage your account information and view your activity</p>
-              </div>
-              <UserProfile user={currentUser} />
-            </div>
-          )}
-
           {activeTab === 'complaints' && (
             <div>
               <div className="flex justify-between items-center mb-8">
